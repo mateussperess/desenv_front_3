@@ -1,1 +1,1 @@
-first commit
+## Repositório voltado para a prática de exercícios e fixação de conteúdo da cadeira de Desenvolvimento frontend III
