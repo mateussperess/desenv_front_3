@@ -13,19 +13,23 @@
       <input type="submit" value="Cadastrar" type="submit" />
     </form>
 
+    <input type="button" value="Maior média" onclick="calcularMaiorMedia()" />
+
     <div id="response"></div>
-    <div id="listaAlunos"></div>
+    <div id="mostrarMaiorMedia"></div>
+    <div id="listaAlunos"> <h3> Lista de Alunos </h3></div>
 
     <script>
       const form = document.getElementById("form");
       const response = document.querySelector("#response");
       const listaAlunos = document.querySelector("#listaAlunos");
-      
+      const mostrarMaiorMedia = document.querySelector("#mostrarMaiorMedia");
+
       const lista = document.createElement("ul");
       listaAlunos.appendChild(lista);
 
       const alunos = [];
-      
+
       form.addEventListener("submit", (e) => {
         response.textContent = "";
         e.preventDefault();
@@ -40,7 +44,7 @@
 
         if (nome === "") {
           let span = document.createElement("span");
-          span.innerText = "O nome informado é inválido!";
+          span.innerHTML = "O nome informado é inválido! <br>";
           span.style.color = "red";
           response.appendChild(span);
           flagNome = false;
@@ -48,34 +52,56 @@
 
         if (nota1 === "" || isNaN(nota1) || nota1 < 0 || nota1 > 10) {
           let span = document.createElement("span");
-          span.innerText = "A nota 1 informada é inválido!";
+          span.innerHTML = "A nota 1 informada é inválido! <br>";
           span.style.color = "red";
           response.appendChild(span);
           flagNota1 = false;
         }
-        
+
         if (nota2 === "" || isNaN(nota2) || nota2 < 0 || nota2 > 10) {
           let span = document.createElement("span");
-          span.innerText = "A nota 2 informada é inválido!";
+          span.innerHTML = "A nota 2 informada é inválido! <br>";
           span.style.color = "red";
           response.appendChild(span);
           flagNota2 = false;
         }
 
-        if(flagNome && flagNota1 && flagNota2) {
+        if (flagNome && flagNota1 && flagNota2) {
           let novoAluno = {
             nome: nome,
             nota1: nota1,
-            nota2: nota2
+            nota2: nota2,
           };
 
           alunos.push(novoAluno);
 
           let li = document.createElement("li");
-          li.innerText = `Nome: ${novoAluno.nome} - Nota 1: ${novoAluno.nota1} - Nota 2: ${novoAluno.nota2}`
+          li.innerText = `Nome: ${novoAluno.nome} - Nota 1: ${novoAluno.nota1} - Nota 2: ${novoAluno.nota2}`;
           lista.appendChild(li);
         }
       });
+
+      function calcularMaiorMedia() {
+        let alunoMaiorMedia = {
+          nomeAluno: "",
+          mediaAluno: 0
+        }        
+
+        alunos.forEach(aluno => {
+          let mediaAluno = (aluno.nota1 + aluno.nota2) / 2;
+          if(mediaAluno > alunoMaiorMedia.mediaAluno) {
+            alunoMaiorMedia = {
+              nomeAluno: aluno.nome,
+              mediaAluno: mediaAluno
+            }
+          }
+        });
+
+        let span = document.createElement("span");
+        span.innerHTML = `Maior media: ${alunoMaiorMedia.nomeAluno} com a média: ${alunoMaiorMedia.mediaAluno}`;
+
+        mostrarMaiorMedia.appendChild(span);
+      }
     </script>
   </body>
 </html>
