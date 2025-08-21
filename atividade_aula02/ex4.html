@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 4 Aula 02- DF3</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="nome">
+        <input 
+          type="text" 
+          name="nome" 
+          id="nome" 
+          placeholder="nome..." 
+        />
+      </label>
+
+      <label for="salario">
+        <input
+          type="number"
+          name="salario"
+          id="salario"
+          placeholder="salario..."
+        />
+      </label>
+
+      <label for="cargo">
+        <select name="cargo" id="cargo">
+          <option value="estagiario">Estagiário</option>
+          <option value="desenvolvedor">Desenvolvedor</option>
+          <option value="analista">Analista</option>
+          <option value="administrador">Administrador</option>
+          <option value="gerente">Gerente</option>
+          <option value="Teste">Teste</option>
+        </select>
+      </label>
+
+      <label for="btnCadastrar">
+        <h3>Cadastro empregado</h3>
+        <button type="submit">Cadastrar</button>
+      </label>
+    </form>
+
+    <div id="response"></div>
+
+    <script src="ex4.js"></script>
+  </body>
+</html>
