@@ -8,12 +8,7 @@
   <body>
     <form id="form">
       <label for="nome">
-        <input 
-          type="text" 
-          name="nome" 
-          id="nome" 
-          placeholder="nome..." 
-        />
+        <input type="text" name="nome" id="nome" placeholder="nome..." />
       </label>
 
       <label for="salario">
@@ -27,12 +22,12 @@
 
       <label for="cargo">
         <select name="cargo" id="cargo">
+          <option value="Teste">Escolha uma opção</option>
           <option value="estagiario">Estagiário</option>
           <option value="desenvolvedor">Desenvolvedor</option>
           <option value="analista">Analista</option>
           <option value="administrador">Administrador</option>
           <option value="gerente">Gerente</option>
-          <option value="Teste">Teste</option>
         </select>
       </label>
 
@@ -43,6 +38,18 @@
     </form>
 
     <div id="response"></div>
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Salário</th>
+            <th>Cargo</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
 
     <script src="ex4.js"></script>
   </body>
