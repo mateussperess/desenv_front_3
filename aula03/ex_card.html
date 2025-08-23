@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício Card - Aula 03</title>
+  </head>
+  <body>
+    <div id="response"></div>
+
+    <script>
+      const response = document.getElementById("response");
+
+      const card = {
+        titulo: "título",
+        subtitulo: "subtítulo",
+        mensagem: "Olá mundo!",
+        cor: "blue",
+        container: null,
+        renderiza() {
+          this.container = document.createElement("div");
+          this.container.style.backgroundColor = this.cor;
+
+          let h1 = document.createElement("h1");
+          let h2 = document.createElement("h2");
+          let p = document.createElement("p");
+
+          h1.textContent = this.titulo;
+          h2.textContent = this.subtitulo;
+          p.textContent = this.mensagem;
+
+          this.container.appendChild(h1);
+          this.container.appendChild(h2);
+          this.container.appendChild(p);
+
+          response.appendChild(this.container)
+        },
+      };
+
+      card.renderiza()
+    </script>
+  </body>
+</html>

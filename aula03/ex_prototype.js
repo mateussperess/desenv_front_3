@@ -1,0 +1,15 @@
+let pai={ nome:"Glederson", sobrenome:"Santos"};
+let filho = Object.create(pai);
+console.log(pai);
+console.log(filho);
+console.log(filho.nome);
+console.log(filho.sobrenome);
+pai.sobrenome="Lessa";
+console.log(pai);
+console.log(filho);
+console.log(filho.sobrenome);
+filho.nome="Felipe";
+console.log(pai);
+console.log(filho);
+console.log(pai.nome);
+console.log(filho.nome);
